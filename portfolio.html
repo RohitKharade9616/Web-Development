@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+</head>
+<style>
+    
+:root{
+    --blue: #6495ED;
+}
+
+*{
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border:none;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+}
+
+*::selection{
+    background: var(--blue);
+    color: #333;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width: 1.4rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: #222;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: var(--blue);
+}
+
+body{
+    background: #111;
+    overflow-x: hidden;
+    padding-left: 35rem;
+}
+    header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    width: 35rem;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    text-align: center;
+}
+
+header .user img{
+    height: 17rem;
+    width: 17rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 0.7rem solid var(--blue);
+}
+
+header .user .name{
+    font-size: 3.5rem;
+    color: #fff;
+}
+
+header .user .post{
+    font-size: 2rem;
+    color: #eee;
+}
+
+header .navbar{
+    width: 100%;
+}
+
+header .navbar ul{
+    list-style: none;
+    padding:1rem 3rem;
+} 
+
+header .navbar ul li a{
+    display: block;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    text-decoration: none;
+    background: #333;
+    color: #fff;
+    font-size: 2rem;
+    border-radius: 5rem;
+}
+
+header .navbar ul li a:hover{
+    background: var(--blue);
+}
+#menu{
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    font-size: 2.5rem;
+    padding: 1rem 1.5rem;
+    z-index: 1000;
+    display: none;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    padding: 0 15rem;
+    margin-top: 200px;
+}
+
+.home h3{
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.home h1{
+    font-size: 5rem;
+    color: #fff;
+}
+
+.home h1 span{
+    color: var(--blue);
+}
+
+.home p{
+    font-size: 2rem;
+    color: #eee;
+    padding: 1rem 0;
+    text-align: justify;
+}
+.btn{
+    padding: 0.7rem 3rem;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 2rem;
+    border-radius: 5rem;
+}
+
+.btn i{
+    padding: 0 0.5rem;
+    font-size: 1.8rem;
+}
+
+.btn:hover{
+    background: var(--blue);
+}
+
+.heading{
+    text-align: center;
+    margin: 0 6rem;
+    font-size: 4rem;
+    padding: 1rem;
+    border-bottom: 0.1rem solid #fff4;
+    color: #fff;
+}
+
+.heading span{
+    color: var(--blue);
+}
+
+.about .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+
+.about .row .info{
+    flex: 1 1 48rem;
+    padding: 2rem 1rem;
+    padding-left: 6rem;
+}
+
+.about .row .info h3{
+    font-size: 2rem;
+    color: var(--blue);
+    padding: 1rem 0;
+    font-weight: normal;
+}
+
+.about .row .info h3 span{
+    color: #eee;
+    padding: 0 0.5rem;
+}
+
+.about .row .counter{
+    flex: 1 1 48rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.about .row .counter .box{
+    width: 20rem;
+    background: #222;
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem;
+}
+
+.about .row .counter .box span{
+    font-size: 4rem;
+    color: var(--blue);
+}
+
+.about .row .counter .box h3{
+    font-size: 2rem;
+    color: #fff;
+}
+
+.education .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    padding-left: 3rem;
+}
+
+.education .box-container .box{
+    width: 27rem;
+    margin: 4rem 1rem;
+    padding-left: 4rem;
+    border-left: 0.2rem solid #fff;
+    position: relative;
+}
+
+.education .box-container .box span{
+    font-size: 1.3rem;
+    background: #222;
+    color: #fff;
+    border-radius: 5rem;
+    padding: 0.5rem 2.5rem;
+}
+
+.education .box-container .box h3{
+    font-size: 2rem;
+    color: #fff;
+    padding-top: 1.5rem;
+}
+.education .box-container .box p{
+    font-size: 1.4rem;
+    color: #eee;
+    padding-top: 1.5rem 0;
+}
+
+.education .box-container .box i{
+    position: absolute;
+    top: -1.5rem;
+    left: -2.5rem;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 5rem;
+    color: #fff;
+    background: var(--blue);
+}
+.contact .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.contact .row .content{
+    flex: 1 1 30rem;
+    padding: 4rem;
+    padding-bottom: 0;
+}
+
+.contact .row form{
+    flex: 1 1 45rem;
+    padding: 2rem;
+    margin: 2rem;
+    margin-bottom: 4rem;
+}
+
+.contact .row form .box{
+    padding: 1.5rem;
+    margin: 1rem 0;
+    background: #3333;
+    color: #fff;
+    text-transform: none;
+    font-size: 1.7rem;
+    width: 100%;
+}
+
+.contact .row form .box::placeholder{
+    text-transform: capitalize;
+}
+
+.contact .row form .message{
+    height: 15rem;
+    resize: none;
+}
+
+.contact .row .content .title{
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 3rem;
+    padding-bottom: 2rem;
+}
+
+
+.contact .row .content .info h3{
+    display: flex;
+    align-items: center;
+    text-transform: lowercase;
+    font-size: 2rem;
+    color: #eee;
+    padding: 1rem 0;
+    font-weight: normal;
+}
+
+.contact .row .content .info h3 i{
+    padding-right: 1rem;
+    color: var(--blue);
+}
+
+</style>
+<body>
+    <!-- menu bar -->
+    <header>
+        <div class="user">
+            <img src="my.jpg">
+            <h3 class="name">Rohit  Kharade</h3>
+            <p class="post">Data Scientist | Web Developer</p>
+        </div>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+   </header>
+
+   <!-- information  -->
+    <section class="home" id="home">
+    <h3>HI THERE 👋,</h3>
+    <h1>I'M <span>Rohit Kharade</span></h1>
+    <p>As a Data Scientist and Web Developer Enthusiast, I Am Passionate To Explore Myself In Both Development As Well As Data Scientist Profession.</p>
+    <a href="#about"><button class="btn">About Me <i class="fas fa-user"></i></button></a>
+    </section>
+
+
+    <!-- about me -->
+    <section class="about" id="about">
+        <h1 class="heading"><span>About</span> Me</h1>
+        <div class="row">
+            <div class="info">
+                <h3><span> name : </span> Rohit Kharade </h3>
+                <h3><span> Age : </span> 21 </h3>
+                <h3><span> Qualification : </span> Computer Engineering [BE]</h3>
+                <h3><span> Domain : </span> Data Scientist </h3>
+                <h3><span> Languages : </span> English | Marathi | Hindi </h3>
+                <a href="Rohit's Resume.pdf" download=""><button class="btn"> Download CV <i class="fas fa-download"></i></button></a>
+            </div>
+            <div class="counter">
+                <div class="box">
+                    <span>60%</span>
+                    <h3>Web Development</h3>
+                </div>
+                
+                <div class="box">
+                    <span>50%</span>
+                    <h3>Data Science</h3>
+                </div>
+ 
+                 <div class="box">
+                     <span>75%</span>
+                     <h3>Python</h3>
+                 </div>
+ 
+                
+                 <div class="box">
+                     <span>60%</span>
+                     <h3>C++</h3>
+                 </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- education -->
+    <section class="education" id="education">
+        <h1 class="heading">My <span>Education</span></h1>
+        
+        <div class="box-container">
+            <div class="box">
+               <!-- <a href="data/SSC.pdf" download><i class="fas fa-graduation-cap"></i></a> -->
+                <span>2017</span>
+                <h3>SSC</h3>
+                <p>Sau,Venutai Chavan High School,Taradgaon</p>
+            </div>
+            
+            <div class="box">
+                <!-- <a href="data/HSC.pdf" download><i class="fas fa-graduation-cap"></i></a> -->
+                <span>2019</span>
+                <h3>HSC</h3>
+                <p>Someshwar Vidyalay,Someshwarnagar</p>
+            </div>
+                        
+            <div class="box">
+                <!-- <a href="data/BE.pdf" download><i class="fas fa-graduation-cap"></i></a> -->
+                <span>2023</span>
+                <h3>BACHELOR OF ENGINEERING</h3>
+                <p>Shri.Sharadchandra Pawar College Of Engineering & Technology,Somesh\</p>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- contact us -->
+    <section class="contact" id="contact">
+        <h1 class="heading"><span>Contact</span> Me</h1>
+        <div class="row">
+            <div class="content">
+    
+                <h3 class="title">Get In touch</h3>
+                
+                <div class="info">
+                    <h3 id="mail"><i class="fas fa-envelope"></i>rohitvkharade@gmail.com</h3>
+                    <h3><i class="fas fa-map-marker"></i>Tadavale,Maharashtra</h3>
+                </div>
+    
+                <div class="social-media">
+                    <a href="https://www.linkedin.com/in/rohit-kharade-54b556220"><img src="data:image/png;base64,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" alt="linkedin" class="social-icons" style="width: 50px;height: 50px;"></a>
+                    <a href="https://github.com/RohitKharade9616"><img src="https://kharadesuraj.github.io/SurajKharade/img/git%20(2).png" alt="github" class="social-icons" style="width: 50px;height: 50px;margin-left: 10px;"></a>
+                </div>
+    
+            </div>
+            <form action="">
+                <input type="text" placeholder="name" class="box">
+                <input type="email" placeholder="email" class="box">
+                <input type="text" placeholder="subject" class="box">
+                <textarea name="" id="" cols="30" rows="10" class="box message" placeholder="message"></textarea>
+                <button type="submit" class="btn">Send <i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
